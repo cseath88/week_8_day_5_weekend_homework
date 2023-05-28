@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const BikeListContainer = styled.ul`
     margin-top: 20px;
@@ -43,29 +44,34 @@ const AddToBasketButton = styled.button`
     transition: background-color 0.3s;
 
     &:hover {
-    background-color: #0056b3;
-}`
+        background-color: #0056b3;
+    }
+`
+
+
 
 
 const BikeList = ({ bikes, addToBasket }) => {
     const handleAddToBasket = (bike) => {
         addToBasket(bike)
-}
+    }
 
     return (
         <BikeListContainer>
-        <Title>Bikes</Title>
-        {bikes.map((bike) => (
-            <BikeItem key={bike.id}>
-            <BikeName>{bike.name}</BikeName>
-            <BikePrice>Price: £{bike.price}</BikePrice>
-            <AddToBasketButton onClick={() => handleAddToBasket(bike)}>
-                Add to Basket
-            </AddToBasketButton>
-            </BikeItem>
-        ))}
+            <Title>Bikes</Title>
+            {bikes.map((bike) => (
+                <BikeItem key={bike.id}>
+                    <Link to={`/bike/${bike.id}`}> 
+                        <BikeName>{bike.name}</BikeName>
+                    </Link>
+                    <BikePrice>Price: £{bike.price}</BikePrice>
+                    <AddToBasketButton onClick={() => handleAddToBasket(bike)}>
+                        Add to Basket
+                    </AddToBasketButton>
+                </BikeItem>
+            ))}
         </BikeListContainer>
-)
+    )
 }
 
-export default BikeList;
+export default BikeList

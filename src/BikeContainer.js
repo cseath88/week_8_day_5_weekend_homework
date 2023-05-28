@@ -2,8 +2,9 @@ import React, { useState } from "react"
 import BikeList from "./BikeList"
 import Header from "./Header"
 import Basket from "./Basket"
+import BikeInfo from "./BikeInfo"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import styled from 'styled-components'
+
 
 const BikeContainer = () => {
 
@@ -13,12 +14,8 @@ const BikeContainer = () => {
         {id: 3, name: "Boardman SLR", description: "Critically acclaimed for its balance of speed and comfort.", gender: "Male", price: 875.00},
         {id: 4, name: "Quella Nero", description: "A high quality, good-value and dependable commuter bicycle.", gender: "Female", price: 429.00}
     ])
-    const [selectedBike, setSelectedBike] = useState(null)
-    const [basket, setBasket] = useState([])
 
-    const onBikeSelected = function (bike) {
-        setSelectedBike(bike)
-    }
+    const [basket, setBasket] = useState([])
 
     const addToBasket = (bike) => {
         setBasket([...basket, bike])
@@ -44,6 +41,7 @@ const BikeContainer = () => {
             <Routes>
                 <Route path="/basket" element={<Basket basket={basket} basketTotal={basketTotal} removeFromBasket={removeFromBasket} />} />
                 <Route path="/bikes" element={<BikeList bikes={bikes} addToBasket={addToBasket} />} />
+                <Route path="/bike/:id" element={<BikeInfo bikes={bikes} addToBasket={addToBasket} />} />
             </Routes>
         </Router>
     )

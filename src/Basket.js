@@ -1,5 +1,4 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const BasketContainer = styled.div`
   margin-top: 20px;
@@ -11,39 +10,39 @@ const BasketContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-`;
+`
 
 const Title = styled.h2`
   font-size: 24px;
   margin-bottom: 10px;
   color: #333;
-`;
+`
 
 const EmptyBasketMessage = styled.p`
   font-size: 16px;
   color: #999;
-`;
+`
 
 const BasketList = styled.ul`
   list-style: none;
   padding: 0;
-`;
+`
 
 const BasketItem = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
-`;
+`
 
 const ItemName = styled.span`
   font-weight: bold;
   flex: 1;
-`;
+`
 
 const ItemPrice = styled.span`
   margin-left: 10px;
-`;
+`
 
 const RemoveButton = styled.button`
   margin-left: 10px;
@@ -58,18 +57,21 @@ const RemoveButton = styled.button`
   &:hover {
     background-color: #e60000;
   }
-`;
+`
 
 const TotalPrice = styled.div`
   margin-top: 10px;
   font-weight: bold;
   text-align: right;
-`;
+`
+
+
+
 
 const Basket = ({ basket, removeFromBasket, basketTotal }) => {
   const handleRemoveFromBasket = (bikeId) => {
-    removeFromBasket(bikeId);
-  };
+    removeFromBasket(bikeId)
+  }
 
   return (
     <BasketContainer>
@@ -89,9 +91,9 @@ const Basket = ({ basket, removeFromBasket, basketTotal }) => {
         </BasketList>
       )}
     </BasketContainer>
-  );
-};
+  )
+}
 
-export default Basket;
+export default Basket
 
 
