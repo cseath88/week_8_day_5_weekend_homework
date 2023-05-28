@@ -36,13 +36,13 @@ const BikeContainer = () => {
         })
     }
 
-
+    const basketTotal = basket.reduce((total, item) => total + item.price, 0)
 
     return (
         <Router>
             <Header basketTotal={basketTotal}/>
             <Routes>
-                <Route path="/basket" element={<Basket basket={basket} removeFromBasket={removeFromBasket} />} />
+                <Route path="/basket" element={<Basket basket={basket} basketTotal={basketTotal} removeFromBasket={removeFromBasket} />} />
                 <Route path="/bikes" element={<BikeList bikes={bikes} addToBasket={addToBasket} />} />
             </Routes>
         </Router>
